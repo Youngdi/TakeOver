@@ -1,0 +1,17 @@
+
+#[test01]
+#172.17.41.52 ansible_user=ubuntu ansible_ssh_pass=password
+#
+#[test02]
+#172.17.41.51 ansible_user=ubuntu ansible_ssh_pass=password
+#
+#[Platform9test03]
+#172.17.41.53 ansible_user=ubuntu ansible_ssh_pass=password
+
+[EC2]
+54.199.248.41 ansible_user=ubuntu ansible_ssh_private_key_file=youngditakeitover.pem
+
+#[Platform9test04]
+#172.17.41.45 ansible_user=ubuntu ansible_ssh_pass=password
+#172.17.41.47 ansible_user=ubuntu ansible_ssh_pass=password
+
