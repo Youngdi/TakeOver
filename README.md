@@ -3,8 +3,8 @@
 [![N|Solid](http://www.bannerch.org/images/logo.svg)](http://www.bannerch.org/)
 
 Banner Church Summer Camp 2017旌旗傾城而出夏令營配合大地遊戲使用的App
-[Apple Store下載體驗](https://facebook.github.io/react-native)
-[Google Play下載體驗](https://play.google.com/store/apps/details?id=com.banner.takeitover)
+- [Apple Store下載體驗](https://facebook.github.io/react-native)
+- [Google Play下載體驗](https://play.google.com/store/apps/details?id=com.banner.takeitover)
 # 開源專案協作人員注意事項!
   - 1.)Fork後再發push的request
   - 2.)相關設定檔及說明在doc資料夾下
