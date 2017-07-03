@@ -17,7 +17,7 @@ Banner Church Summer Camp 2017旌旗傾城而出夏令營配合大地遊戲使�
   - react-native-fcm的串接
   - react-native-qrcode-scanner的串接
   - IOS & Android 上架
-  - 整合大家的code及Debug
+  - integrate code and fix bug
 ##### ✰ Forest 負責項目：
   - 規劃及設計App各個關卡的遊戲機制(資源表...等等)
 ##### ✰ Angus Wan 負責項目：
@@ -29,7 +29,6 @@ Banner Church Summer Camp 2017旌旗傾城而出夏令營配合大地遊戲使�
 ##### ✰ Sam Wang 負責項目：
   - 協助整體遊戲機制及程式測試
 ##### ✰ Bomi Chen 負責項目：
-  - 協助前端程式開發，包含介面及套件的串接
   - 優化整體App的介面UI設計及與設計師進行溝通
 ##### ✰ Thomas 負責項目：
   - 與Forest討論整體App的介面風格及設計
