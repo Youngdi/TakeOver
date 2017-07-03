@@ -3,11 +3,12 @@
 [![N|Solid](http://www.bannerch.org/images/logo.svg)](http://www.bannerch.org/)
 
 Banner Church Summer Camp 2017旌旗傾城而出夏令營配合大地遊戲使用的App
-
+[Apple Store下載體驗](https://facebook.github.io/react-native)
+[Google Play下載體驗](https://play.google.com/store/apps/details?id=com.banner.takeitover)
 # 開源專案協作人員注意事項!
-
   - 1.)Fork後再發push的request
-  - 2.)保持愉快心情
+  - 2.)相關設定檔及說明在doc資料夾下
+  - 3.)保持愉快心情
 ***
 # Contributors
 ##### ✰ Bill Youngdi 負責項目：
@@ -70,12 +71,7 @@ This app uses a number of open source projects to work properly:
 
 TakeItOver App requires [Node.js](https://nodejs.org/) v7.4.0+ to run.
 
-Please Follow the article first to set your Development Environment:
-
-[React Native 入門環境設定](http://ithelp.ithome.com.tw/articles/10186743)
-
-Install the dependencies and devDependencies before your start.
-#### step1 -[React Native 入門環境設定](http://ithelp.ithome.com.tw/articles/10186743)做完後Clone一份程式到你的本機
+#### step1 -先至[React Native 入門環境設定](http://ithelp.ithome.com.tw/articles/10186743)後，Clone一份程式到你的本機
 ```sh
 $ git clone https://github.com/Youngdi/TakeItOver.git 
 ```
