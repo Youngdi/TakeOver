@@ -29,8 +29,6 @@ class TabBarNavigation extends React.Component {
     BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
   }
   componentWillUnmount() {
-    this.notificationListener.remove();
-    this.refreshTokenListener.remove();
     BackHandler.removeEventListener('hardwareBackPress', this.onBackPress);
   }
   onBackPress = () => {

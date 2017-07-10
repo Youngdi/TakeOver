@@ -4,7 +4,7 @@ export async function getMyUser() {
   const username = await AsyncStorage.getItem('@UserName');
   const userCountry = await AsyncStorage.getItem('@UserCountry');
     let response = await fetch(
-      `http://${Config.SERVER_IP}:${Config.PORT}/get_my_user`,
+      `https://${Config.SERVER_IP}:${Config.PORT}/get_my_user`,
       {
       method: 'POST',
       headers: {
@@ -26,7 +26,7 @@ export async function getMyUser() {
     return response[0];
 }
 export async function getLand() {
-    let response = await fetch(`http://${Config.SERVER_IP}:${Config.PORT}/get_map`,)
+    let response = await fetch(`https://${Config.SERVER_IP}:${Config.PORT}/get_map`,)
     .then((response) => response.json())
     .catch((error) => {
       console.error(error);
@@ -38,7 +38,7 @@ export async function getMyCountry() {
   const userCountry = await AsyncStorage.getItem('@UserCountry');
   const username = await AsyncStorage.getItem('@UserName');
     let response = await fetch(
-      `http://${Config.SERVER_IP}:${Config.PORT}/get_my_country`,
+      `https://${Config.SERVER_IP}:${Config.PORT}/get_my_country`,
       {
       method: 'POST',
       headers: {
@@ -63,7 +63,7 @@ export async function api_buyHint(cost, puzzle, puzzle_result) {
   const userCountry = await AsyncStorage.getItem('@UserCountry');
   const username = await AsyncStorage.getItem('@UserName');
     let response = await fetch(
-      `http://${Config.SERVER_IP}:${Config.PORT}/buy_hint`,
+      `https://${Config.SERVER_IP}:${Config.PORT}/buy_hint`,
       {
       method: 'POST',
       headers: {
@@ -90,7 +90,7 @@ export async function api_giveScore(K, password, puzzle_result, puzzle) {
   const username = await AsyncStorage.getItem('@UserName');
   const userCountry = await AsyncStorage.getItem('@UserCountry');
     let response = await fetch(
-      `http://${Config.SERVER_IP}:${Config.PORT}/puzzle_give_score`,
+      `https://${Config.SERVER_IP}:${Config.PORT}/puzzle_give_score`,
       {
       method: 'POST',
       headers: {
@@ -118,7 +118,7 @@ export async function api_giveScoreDay3(K, Fire, Water, Wood, Stone, Seed, passw
   const username = await AsyncStorage.getItem('@UserName');
   const userCountry = await AsyncStorage.getItem('@UserCountry');
     let response = await fetch(
-      `http://${Config.SERVER_IP}:${Config.PORT}/give_score_day3`,
+      `https://${Config.SERVER_IP}:${Config.PORT}/give_score_day3`,
       {
       method: 'POST',
       headers: {
@@ -149,7 +149,7 @@ export async function api_buyResource(Money, Resource, leftMoney) {
   const username = await AsyncStorage.getItem('@UserName');
   const userCountry = await AsyncStorage.getItem('@UserCountry');
     let response = await fetch(
-      `http://${Config.SERVER_IP}:${Config.PORT}/buy_resource`,
+      `https://${Config.SERVER_IP}:${Config.PORT}/buy_resource`,
       {
       method: 'POST',
       headers: {
@@ -176,7 +176,7 @@ export async function api_buyLand(fire, water, wood, stone, seed, map_name) {
   const username = await AsyncStorage.getItem('@UserName');
   const userCountry = await AsyncStorage.getItem('@UserCountry');
     let response = await fetch(
-      `http://${Config.SERVER_IP}:${Config.PORT}/buy_land`,
+      `https://${Config.SERVER_IP}:${Config.PORT}/buy_land`,
       {
       method: 'POST',
       headers: {
@@ -206,7 +206,7 @@ export async function api_qrcode(fire, water, wood, stone, seed, qrcodeName) {
   const username = await AsyncStorage.getItem('@UserName');
   const userCountry = await AsyncStorage.getItem('@UserCountry');
     let response = await fetch(
-      `http://${Config.SERVER_IP}:${Config.PORT}/scan_qrcode`,
+      `https://${Config.SERVER_IP}:${Config.PORT}/scan_qrcode`,
       {
       method: 'POST',
       headers: {
@@ -233,7 +233,7 @@ export async function api_qrcode(fire, water, wood, stone, seed, qrcodeName) {
     return response;
 }
 export async function getFlagFromSetting() {
-    let response = await fetch(`http://${Config.SERVER_IP}:${Config.PORT}/get_setting`)
+    let response = await fetch(`https://${Config.SERVER_IP}:${Config.PORT}/get_setting`)
     .then((response) => response.json())
     .catch((error) => {
       console.error(error);

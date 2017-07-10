@@ -1,6 +1,6 @@
 var express = require('express')
 var config = require('./config/index')
-// var cors = require('cors')
+var cors = require('cors')
 const Setting = require('./models/setting')
 var port = process.env.PORT || config.dev.port
 
@@ -27,7 +27,7 @@ var session = require('express-session')
 // 用于异步回调
 mongoose.Promise = require('bluebird')
 global.db = mongoose.connect('mongodb://localhost:27017/takeitover')
-// app.use(cors())
+app.use(cors())
 // 服务器提交的数据json化
 
 app.use(bodyParser.json())

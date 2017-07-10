@@ -905,7 +905,11 @@ module.exports = (app, io) => {
           console.log(err)
         }
         response.send({
-          data: openst.convertSync(JSON.parse(res.text).text)
+          data: {
+            text: openst.convertSync(JSON.parse(res.text).text),
+            code: JSON.parse(res.text).code,
+            url: JSON.parse(res.text).url,
+          }
         })
         response.end()
     })

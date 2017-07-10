@@ -48,7 +48,7 @@ export default class TabThreeScreenThree extends React.Component {
       };
     });
     let response = await fetch(
-      `http://${Config.SERVER_IP}:${Config.PORT}/robotapi`,
+      `https://${Config.SERVER_IP}:${Config.PORT}/robotapi`,
       {
       method: 'POST',
       headers: {
@@ -66,10 +66,27 @@ export default class TabThreeScreenThree extends React.Component {
       console.error(error);
       return error;
     });
-    this.setState((previousState) => {
+    if (response.data.code == 100000) {
+      this.setState((previousState) => {
+          const robot = {
+            _id: this._id++,
+            text: response.data.text,
+            createdAt: new Date(),
+            user: {
+              _id: 2,
+              name: '大天團英雄',
+              avatar: this.state.robot,
+            },
+          }
+          return {
+            messages: GiftedChat.append(previousState.messages, robot),
+          };
+      });
+    } else if(response.data.code == 200000) {
+      this.setState((previousState) => {
         const robot = {
           _id: this._id++,
-          text: response.data,
+          text: response.data.text + ':\n' + response.data.url,
           createdAt: new Date(),
           user: {
             _id: 2,
@@ -80,10 +97,10 @@ export default class TabThreeScreenThree extends React.Component {
         return {
           messages: GiftedChat.append(previousState.messages, robot),
         };
-    });
+      });
+    }
   }
   render() {
-    console.log(this.state);
     return (
       <GiftedChat
         messages={this.state.messages}

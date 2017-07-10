@@ -19,31 +19,6 @@ async function check_login() {
   } else {
     this.props.navigation.navigate('Login');
   }
-  // try {
-  //   let response = await fetch(
-  //     `http://${Config.SERVER_IP}:${Config.PORT}/check_login`,
-  //     {
-  //     method: 'GET',
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json',
-  //     }
-  //    }
-  //   )
-  //   .then((response) => response.json())
-  //   .catch((error) => {
-  //     console.error(error);
-  //     return error;
-  //   });
-  //   if (response.loggedIn) {
-  //     await AsyncStorage.setItem('@User', JSON.stringify(response.user));
-  //     this.props.navigation.navigate('Home');
-  //   } else {
-  //     this.props.navigation.navigate('Login');
-  //   }
-  // } catch(error) {
-  //   console.log(error);
-  // }
 }
 export default class SplashScreen extends React.Component {
   constructor(props) {

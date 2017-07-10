@@ -48,7 +48,7 @@ class SideDrawer extends React.Component {
           onItemPress={(route) => {
             if (route.route.routeName === 'TabOneDrawerEight') {
               AsyncStorage.setItem('@isLogined', 'N');
-              fetch(`http://${Config.SERVER_IP}:${Config.PORT}/logout`);
+              fetch(`https://${Config.SERVER_IP}:${Config.PORT}/logout`);
               this.props.navigation.navigate('DrawerClose');
               this.props.navigation.navigate('Login');
             } else {

@@ -36,7 +36,7 @@ export default class TabFourScreenTwo extends React.Component {
       };
     });
     let response = await fetch(
-      `http://${Config.SERVER_IP}:${Config.PORT}/robotapi`,
+      `https://${Config.SERVER_IP}:${Config.PORT}/robotapi`,
       {
       method: 'POST',
       headers: {

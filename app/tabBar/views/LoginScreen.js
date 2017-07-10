@@ -21,7 +21,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 async function login(value) {
   try {
     let response = await fetch(
-      `http://${Config.SERVER_IP}:${Config.PORT}/login`,
+      `https://${Config.SERVER_IP}:${Config.PORT}/login`,
       {
       method: 'POST',
       headers: {

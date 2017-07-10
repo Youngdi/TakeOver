@@ -39,11 +39,20 @@ export default class ScanScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      focused: true,
       isRefreshing: false,
       board: '歡迎進入奇妙的世界！'
     };
   }
+  componentWillMount() {
+    this.setState({
+      focused: this.props.navigation.state.params.focused
+    })
+  }
   onSuccess(e) {
+    this.setState({
+      focused: false,
+    })
     this.props.navigation.navigate('TabThreeScreenOne', e);
     /*const setParamsAction = NavigationActions.setParams({
       params: e,
@@ -78,12 +87,8 @@ export default class ScanScreen extends Component {
   }
   render() {
     return (
-        <QRCodeScanner 
-            onRead={this.onSuccess.bind(this)} 
-            //topContent={this.topContent()} 
-            bottomContent={this.bottomContent()}
-        />
-    );
+      this.state.focused ? <QRCodeScanner onRead={this.onSuccess.bind(this)} bottomContent={this.bottomContent()}/> : null
+    )
   }
 }
 
