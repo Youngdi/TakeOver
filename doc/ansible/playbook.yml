@@ -8,30 +8,30 @@
     - name: 'install python2'
       raw: sudo apt-get -y install python-simplejson
   tasks:
-    #- name: install node 8.0.0 step1
-    #  raw: sudo apt-get update
-    #- name: install node 8.0.0 step2
-    #  raw: curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-    #- name: install node 8.0.0 step3
-    #  raw: sudo apt-get install -y nodejs
-    #- name: install nginx step1
-    #  raw: sudo apt-get update
-    #- name: install nginx step2
-    #  raw: yes | sudo apt-get install nginx
-    #- name: git clone TakeOver
-    #  raw: sudo git clone https://github.com/Youngdi/TakeOver
-    #- name: chown change authority
-    #  raw: sudo chown -R ubuntu TakeOver
-    #- name: install pm2
-    #  raw: sudo npm install pm2 -g
-    #- name: install nodemon
-    #  raw: sudo npm install nodemon -g
-    #- name: install nvm
-    #  raw: wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
-    #- name: install make for opencc
-    #  raw: sudo apt install make
-    #- name: install daemon node_mudule
-    #  raw: sudo npm install --prefix ./TakeOver/daemon/
+    - name: install node 8.x step1
+      raw: sudo apt-get update
+    - name: install node 8.x step2
+      raw: curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+    - name: install node 8.x step3
+      raw: sudo apt-get install -y nodejs
+    - name: install nginx step1
+      raw: sudo apt-get update
+    - name: install nginx step2
+      raw: yes | sudo apt-get install nginx
+    - name: git clone TakeOver
+      raw: sudo git clone https://github.com/Youngdi/TakeOver
+    - name: chown change authority
+      raw: sudo chown -R ubuntu TakeOver
+    - name: install pm2
+      raw: sudo npm install pm2 -g
+    - name: install nodemon
+      raw: sudo npm install nodemon -g
+    - name: install make for opencc
+      raw: sudo apt install make step1
+    - name: sudo apt install node-gyp
+      raw: install opencc step2
+    - name: install daemon node_mudule
+      raw: sudo npm install --prefix ./TakeOver/daemon/
     - name: install mongo step1
       raw: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
     - name: install mongo step2
