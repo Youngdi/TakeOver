@@ -1,6 +1,6 @@
 {
-    "remotePath": "./TakeItOver",
-    "host": "54.199.248.41",
+    "remotePath": "./TakeOver",
+    "host": "54.249.79.61", 
     "username": "ubuntu",
     "port": 22,
     "secure": true,
