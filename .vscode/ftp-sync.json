@@ -6,7 +6,7 @@
     "secure": true,
     "protocol": "sftp",
     "uploadOnSave": false,
-    "privateKeyPath": "/Users/yang/Documents/TakeItOver/ansible/youngditakeitover.pem",
+    "privateKeyPath": "/Users/yang/Documents/TakeOver/doc/ansible/youngditakeitover.pem",
     "ignore": [
         "\\.vscode",
         "\\.git",

@@ -17,37 +17,18 @@ import {
 import * as Config from '../../constants/config';
 import LoginForm from '../../components/LoginForm';
 import Spinner from 'react-native-loading-spinner-overlay';
-
+import { api_login } from '../../api/api';
 async function login(value) {
   try {
-    let response = await fetch(
-      `https://${Config.SERVER_IP}:${Config.PORT}/login`,
-      {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-        body: JSON.stringify({
-          'username': value.username,
-          'password': value.password
-        })
-     }
-    )
-    .then((response) => response.json())
-    .catch((error) => {
-      console.error(error);
-      return error;
-    });
+    const response = await api_login(value);
     if (response.loggedIn) {
       try {
         await AsyncStorage.setItem('@isLogined', 'Y');
-        await AsyncStorage.setItem('@UserData', JSON.stringify(response.user));
         await AsyncStorage.setItem('@UserCountry', response.user[0].country);
-        await AsyncStorage.setItem('@UserName', value.username);
+        await AsyncStorage.setItem('@UserName', response.user[0].name);
+        await AsyncStorage.setItem('@jwtToken', response.myToken);
       } catch (error) {
         console.log(error);
-        // Error saving data
       }
       this.setState({
         visible: !this.state.visible,
@@ -55,7 +36,6 @@ async function login(value) {
       });
       this.props.navigation.navigate('Home');
     } else {
-      // Alert.alert('密碼或帳號錯誤');
       this.setState({
         visible: !this.state.visible,
         wrong: true,

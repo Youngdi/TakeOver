@@ -52,38 +52,52 @@ export default class TabOneScreenOne extends React.Component {
     };
   }
   async init() {
-    
     const table_flag = await getFlagFromSetting();
     if (table_flag.changeToDay3 == 'T') {
       const country = await getMyCountry();
-      this.setState({
-        username: country.username,
-        country: country.country,
-        K: country.K,
-        water: country.water,
-        fire: country.fire,
-        wood: country.wood,
-        stone: country.stone,
-        seed: country.seed,
-        isRefreshing: false,
-        visible: false,
-        isOpen: false,
-      });
+      if (country) {
+        this.setState({
+          username: country.username,
+          country: country.country,
+          K: country.K,
+          water: country.water,
+          fire: country.fire,
+          wood: country.wood,
+          stone: country.stone,
+          seed: country.seed,
+          isRefreshing: false,
+          visible: false,
+          isOpen: false,
+        });
+      } else {
+        this.setState({
+          visible: false,
+        });
+        this.props.navigation.navigate('Login');
+      }
+
     } else {
       const user = await getMyUser();
-      this.setState({
-        username: user.username,
-        country: user.country,
-        K: user.K,
-        water: user.water,
-        fire: user.fire,
-        wood: user.wood,
-        stone: user.stone,
-        seed: user.seed,
-        isRefreshing: false,
-        visible: false,
-        isOpen: false,
-      });
+      if (user) { 
+        this.setState({
+          username: user.username,
+          country: user.country,
+          K: user.K,
+          water: user.water,
+          fire: user.fire,
+          wood: user.wood,
+          stone: user.stone,
+          seed: user.seed,
+          isRefreshing: false,
+          visible: false,
+          isOpen: false,
+        });
+      } else {
+        this.setState({
+          visible: false,
+        });
+        this.props.navigation.navigate('Login');
+      }
     }
   }
   _onRefresh() {

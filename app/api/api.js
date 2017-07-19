@@ -1,8 +1,32 @@
 import { AsyncStorage } from 'react-native';
 import * as Config from '../constants/config';
+export async function api_login(value) {
+  let response = await fetch(
+    `https://${Config.SERVER_IP}:${Config.PORT}/login`,
+    {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+      body: JSON.stringify({
+        'username': value.username,
+        'password': value.password
+      })
+    }
+  )
+  .then((response) => response.json())
+  .catch((error) => {
+    console.error(error);
+    return error;
+  });
+  return response;
+}
 export async function getMyUser() {
-  const username = await AsyncStorage.getItem('@UserName');
-  const userCountry = await AsyncStorage.getItem('@UserCountry');
+  try {
+    const username = await AsyncStorage.getItem('@UserName');
+    const userCountry = await AsyncStorage.getItem('@UserCountry');
+    const jwtToken = await AsyncStorage.getItem('@jwtToken');
     let response = await fetch(
       `https://${Config.SERVER_IP}:${Config.PORT}/get_my_user`,
       {
@@ -10,6 +34,7 @@ export async function getMyUser() {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${jwtToken}`
       },
         body: JSON.stringify({
           'name': username,
@@ -24,6 +49,10 @@ export async function getMyUser() {
     response[0].username = username;
     response[0].country = userCountry;
     return response[0];
+  } catch(error){
+    return false;
+  }
+
 }
 export async function getLand() {
     let response = await fetch(`https://${Config.SERVER_IP}:${Config.PORT}/get_map`,)
@@ -35,8 +64,10 @@ export async function getLand() {
     return response;
 }
 export async function getMyCountry() {
-  const userCountry = await AsyncStorage.getItem('@UserCountry');
-  const username = await AsyncStorage.getItem('@UserName');
+  try {
+    const userCountry = await AsyncStorage.getItem('@UserCountry');
+    const username = await AsyncStorage.getItem('@UserName');
+    const jwtToken = await AsyncStorage.getItem('@jwtToken');
     let response = await fetch(
       `https://${Config.SERVER_IP}:${Config.PORT}/get_my_country`,
       {
@@ -44,6 +75,7 @@ export async function getMyCountry() {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${jwtToken}`
       },
         body: JSON.stringify({
           'country': userCountry,
@@ -58,10 +90,14 @@ export async function getMyCountry() {
     response[0].username = username;
     response[0].country = userCountry;
     return response[0];
+  } catch(error){
+    return false;
+  }
 }
 export async function api_buyHint(cost, puzzle, puzzle_result) {
   const userCountry = await AsyncStorage.getItem('@UserCountry');
   const username = await AsyncStorage.getItem('@UserName');
+  const jwtToken = await AsyncStorage.getItem('@jwtToken');
     let response = await fetch(
       `https://${Config.SERVER_IP}:${Config.PORT}/buy_hint`,
       {
@@ -69,6 +105,7 @@ export async function api_buyHint(cost, puzzle, puzzle_result) {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${jwtToken}`
       },
         body: JSON.stringify({
           'name': username,
@@ -89,6 +126,7 @@ export async function api_buyHint(cost, puzzle, puzzle_result) {
 export async function api_giveScore(K, password, puzzle_result, puzzle) {
   const username = await AsyncStorage.getItem('@UserName');
   const userCountry = await AsyncStorage.getItem('@UserCountry');
+  const jwtToken = await AsyncStorage.getItem('@jwtToken');
     let response = await fetch(
       `https://${Config.SERVER_IP}:${Config.PORT}/puzzle_give_score`,
       {
@@ -96,6 +134,7 @@ export async function api_giveScore(K, password, puzzle_result, puzzle) {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${jwtToken}`
       },
         body: JSON.stringify({
           'name': username,
@@ -117,6 +156,7 @@ export async function api_giveScore(K, password, puzzle_result, puzzle) {
 export async function api_giveScoreDay3(K, Fire, Water, Wood, Stone, Seed, password) {
   const username = await AsyncStorage.getItem('@UserName');
   const userCountry = await AsyncStorage.getItem('@UserCountry');
+  const jwtToken = await AsyncStorage.getItem('@jwtToken');
     let response = await fetch(
       `https://${Config.SERVER_IP}:${Config.PORT}/give_score_day3`,
       {
@@ -124,6 +164,7 @@ export async function api_giveScoreDay3(K, Fire, Water, Wood, Stone, Seed, passw
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${jwtToken}`
       },
         body: JSON.stringify({
           'name': username,
@@ -148,6 +189,7 @@ export async function api_giveScoreDay3(K, Fire, Water, Wood, Stone, Seed, passw
 export async function api_buyResource(Money, Resource, leftMoney) {
   const username = await AsyncStorage.getItem('@UserName');
   const userCountry = await AsyncStorage.getItem('@UserCountry');
+  const jwtToken = await AsyncStorage.getItem('@jwtToken');
     let response = await fetch(
       `https://${Config.SERVER_IP}:${Config.PORT}/buy_resource`,
       {
@@ -155,6 +197,7 @@ export async function api_buyResource(Money, Resource, leftMoney) {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${jwtToken}`
       },
         body: JSON.stringify({
           'name': username,
@@ -175,6 +218,7 @@ export async function api_buyResource(Money, Resource, leftMoney) {
 export async function api_buyLand(fire, water, wood, stone, seed, map_name) {
   const username = await AsyncStorage.getItem('@UserName');
   const userCountry = await AsyncStorage.getItem('@UserCountry');
+  const jwtToken = await AsyncStorage.getItem('@jwtToken');
     let response = await fetch(
       `https://${Config.SERVER_IP}:${Config.PORT}/buy_land`,
       {
@@ -182,6 +226,7 @@ export async function api_buyLand(fire, water, wood, stone, seed, map_name) {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${jwtToken}`
       },
         body: JSON.stringify({
           'name': username,
@@ -205,6 +250,7 @@ export async function api_buyLand(fire, water, wood, stone, seed, map_name) {
 export async function api_qrcode(fire, water, wood, stone, seed, qrcodeName) {
   const username = await AsyncStorage.getItem('@UserName');
   const userCountry = await AsyncStorage.getItem('@UserCountry');
+  const jwtToken = await AsyncStorage.getItem('@jwtToken');
     let response = await fetch(
       `https://${Config.SERVER_IP}:${Config.PORT}/scan_qrcode`,
       {
@@ -212,6 +258,7 @@ export async function api_qrcode(fire, water, wood, stone, seed, qrcodeName) {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${jwtToken}`
       },
         body: JSON.stringify({
           'name': username,

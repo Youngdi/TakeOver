@@ -22,7 +22,6 @@ var morgan = require('morgan')
 // sesstion 存储
 var bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
-// var session = require('cookie-session')
 var session = require('express-session')
 // 用于异步回调
 mongoose.Promise = require('bluebird')
