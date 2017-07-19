@@ -26,6 +26,14 @@
       raw: sudo apt-get install -y mongodb-org
     - name: install mongo step5
       raw: sudo systemctl start mongod
+    - name: install let encrypt
+      raw: wget https://dl.eff.org/certbot-auto
+    - name: change authority of certbot-auto
+      raw: chmod a+x certbot-auto
+    - name: mkdir a document to put LetEncrypt
+      raw: mkdir /opt/letsencrypt
+    - name: move certbot-auto to /opt/letsencrypt/
+      raw: mv certbot-auto /opt/letsencrypt/
    # - name: install Docker from official shell script
   #    raw: curl -sSL https://get.docker.com/ | sh
    #- name: test1
