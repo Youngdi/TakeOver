@@ -20,3 +20,5 @@ web:
   environment:
     PORT: 8083 # this is optional, allows express to use process.env.PORT instead of a raw 3000
     mongoConfig: mongodb://db:27017/takeitover
+    dns: 'www.team4taiwan.com'
+    dnsPort: 443

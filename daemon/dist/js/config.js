@@ -1,2 +1,2 @@
-var BASECONNECTION = 'https://bytday.com';
-var PORT = '443';
+var BASECONNECTION = 'https://bytday.com' || process.env.dns;
+var PORT = '443' || process.env.dnsPort;
