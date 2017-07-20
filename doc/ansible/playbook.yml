@@ -26,10 +26,10 @@
       raw: sudo npm install pm2 -g
     - name: install nodemon
       raw: sudo npm install nodemon -g
-    - name: install make for opencc
-      raw: sudo apt install make step1
-    - name: sudo apt install node-gyp
-      raw: install opencc step2
+    - name: install make for opencc step1
+      raw: sudo apt install make 
+    - name: install opencc step2
+      raw: yes | sudo apt install node-gyp
     - name: install daemon node_mudule
       raw: sudo npm install --prefix ./TakeOver/daemon/
     - name: install mongo step1
@@ -44,26 +44,26 @@
       raw: sudo service mongod start
     - name: import takeItOver data
       raw: sh ./TakeOver/doc/ansible_mongo_import.sh
-    #- name: install LetEncrypt step1
-    #  raw: sudo wget https://dl.eff.org/certbot-auto
-    #- name: change authority of certbot-auto
-    #  raw: sudo chmod a+x certbot-auto
-    #- name: mkdir a document to put LetEncrypt
-    #  raw: sudo mkdir /opt/letsencrypt
-    #- name: move certbot-auto to /opt/letsencrypt/
-    #  raw: sudo mv certbot-auto /opt/letsencrypt/
-    #- name: fix install certbot bug by using export LC_ALL="C"
-    #  raw: sudo export LC_ALL="C"
-    #- name: install LetEncrypt step2
-    #  raw: sudo apt-get update
-    #- name: install LetEncrypt step3
-    #  raw: sudo apt-get install software-properties-common
-    #- name: install LetEncrypt step4
-    #  raw: yes | sudo add-apt-repository ppa:certbot/certbot
-    #- name: install LetEncrypt step5
-    #  raw: sudo apt-get update
-    #- name: install LetEncrypt step6
-    #  raw: yes | sudo apt-get install python-certbot-nginx 
+    - name: install LetEncrypt step1
+      raw: sudo wget https://dl.eff.org/certbot-auto
+    - name: change authority of certbot-auto
+      raw: sudo chmod a+x certbot-auto
+    - name: mkdir a document to put LetEncrypt
+      raw: sudo mkdir /opt/letsencrypt
+    - name: move certbot-auto to /opt/letsencrypt/
+      raw: sudo mv certbot-auto /opt/letsencrypt/
+    - name: fix install certbot bug by using export LC_ALL="C"
+      raw: export LC_ALL="C"
+    - name: install LetEncrypt step2
+      raw: sudo apt-get update
+    - name: install LetEncrypt step3
+      raw: sudo apt-get install software-properties-common
+    - name: install LetEncrypt step4
+      raw: yes | sudo add-apt-repository ppa:certbot/certbot
+    - name: install LetEncrypt step5
+      raw: sudo apt-get update
+    - name: install LetEncrypt step6
+      raw: yes | sudo apt-get install python-certbot-nginx 
     #- name: install certbot-auto
     #  raw: yes | sudo /opt/letsencrypt/certbot-auto
 
