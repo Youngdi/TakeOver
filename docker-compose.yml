@@ -11,7 +11,7 @@ import:
   working_dir: /doc
   command: "sh mongoImport.sh"  
 web:
-  image: youngdi/takeover:latest
+  image: youngdi/takeover:0.1
   ports:
     - "8083:8083"
     - "8084:8084"
