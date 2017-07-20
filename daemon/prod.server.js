@@ -25,7 +25,8 @@ var cookieParser = require('cookie-parser')
 var session = require('express-session')
 // 用于异步回调
 mongoose.Promise = require('bluebird')
-global.db = mongoose.connect('mongodb://localhost:27017/takeitover')
+const mongoConfig = process.env.mongoConfig || 'mongodb://localhost:27017/takeitover'
+global.db = mongoose.connect(mongoConfig)
 app.use(cors())
 // 服务器提交的数据json化
 
