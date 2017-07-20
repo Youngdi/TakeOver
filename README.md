@@ -80,6 +80,9 @@ This Server uses a number of open source projects to work properly:
 * [Express](http://expressjs.com/zh-tw/) - Node.js web framework
 * [Ansible](https://www.ansible.com/) - Automatic deploy env to AWS EC2
 * [AWS EC2](https://aws.amazon.com/tw/) - Deploy our project on it
+* [Nginx](https://nginx.org/) - proxy for express port
+* [LetsEncrypt](https://letsencrypt.org/) - free SSL
+* [Certbot](https://certbot.eff.org/) - generate SSL
 
 ***
 
