@@ -48,6 +48,37 @@ async function login(value) {
     console.log(error);
   }
 }
+async function loginForFun() {
+  try {
+    const value = {username:'BYT30', password:'A23456'};
+    const response = await api_login(value);
+    if (response.loggedIn) {
+      try {
+        await AsyncStorage.setItem('@isLogined', 'Y');
+        await AsyncStorage.setItem('@UserCountry', response.user[0].country);
+        await AsyncStorage.setItem('@UserName', response.user[0].name);
+        await AsyncStorage.setItem('@jwtToken', response.myToken);
+      } catch (error) {
+        console.log(error);
+      }
+      this.setState({
+        visible: !this.state.visible,
+        wrong: false,
+      });
+      this.props.navigation.navigate('Home');
+    } else {
+      this.setState({
+        visible: !this.state.visible,
+        wrong: true,
+      });
+    }
+  } catch(error) {
+    this.setState({
+      visible: !this.state.visible
+    });
+    console.log(error);
+  }
+}
 
 
 export default class LoginScreen extends React.Component {
@@ -64,10 +95,16 @@ export default class LoginScreen extends React.Component {
     });
     login.bind(this, value)();
   }
+  tryforfun() {
+    this.setState({
+      visible: !this.state.visible
+    });
+    loginForFun.bind(this)();
+  }
   render() {
     return (
       <ScrollView style={[styles.container]}>
-        <LoginForm Submit={this.submit.bind(this)} wrong={this.state.wrong}/>
+        <LoginForm tryforfun={this.tryforfun.bind(this)} Submit={this.submit.bind(this)} wrong={this.state.wrong}/>
         <Spinner visible={this.state.visible} textContent={"Loading..."} textStyle={{color: '#FFF'}} />
       </ScrollView>
     )
@@ -76,5 +113,12 @@ export default class LoginScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  }
+  },
+  loginforfun: {
+    marginTop:30,
+    color: "#D8D8D8",
+    backgroundColor: "transparent",
+    textAlign: "right",
+    paddingRight: 15,
+  },
 });

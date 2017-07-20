@@ -57,6 +57,11 @@ class LoginForm extends React.Component {
                 <Text style={styles.buttonText}>Log in</Text>
               </View>
             </TouchableOpacity>
+            <TouchableOpacity activeOpacity={.5} onPress={this.props.tryforfun.bind(this)}>
+              <View>
+                <Text style={styles.loginforfun}>體驗帳號登入</Text>
+              </View>
+            </TouchableOpacity>
           </View>
           <View style={styles.container}>
             <View style={styles.signupWrap}>
@@ -130,13 +135,20 @@ const styles = StyleSheet.create({
     color: "#D8D8D8",
     backgroundColor: "transparent",
     textAlign: "right",
-    paddingRight: 15,
+    paddingLeft: 140,
+  },
+  loginforfun: {
+    marginTop:50,
+    color: "#D8D8D8",
+    backgroundColor: "transparent",
+    textAlign: "right",
+    paddingRight: 0,
   },
   wrongPasswordText: {
     color: "#D20000",
     backgroundColor: "transparent",
     textAlign: "right",
-    paddingRight: 15,
+    paddingLeft: 140,
     marginTop:5,
   },
   signupWrap: {
