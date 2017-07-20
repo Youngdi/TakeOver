@@ -1,6 +1,6 @@
 'use strict'
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet, RefreshControl, ScrollView, Platform } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet, RefreshControl, ScrollView, Platform, AsyncStorage } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { GiftedChat } from 'react-native-gifted-chat';
@@ -47,6 +47,7 @@ export default class TabThreeScreenThree extends React.Component {
           messages: GiftedChat.append(previousState.messages, messages),
       };
     });
+    const jwtToken = await AsyncStorage.getItem('@jwtToken');
     let response = await fetch(
       `https://${Config.SERVER_IP}:${Config.PORT}/robotapi`,
       {
@@ -54,6 +55,7 @@ export default class TabThreeScreenThree extends React.Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${jwtToken}`
       },
         body: JSON.stringify({
           'info': messages[0].text,
