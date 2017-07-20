@@ -40,8 +40,8 @@ Banner Church Summer Camp 2017旌旗傾城而出夏令營配合大地遊戲使�
   - 領土爭奪戰配合景文科大切分圖(49格)
   - 各種資源(上架)的Icon圖
 
-### Tech
-This app uses a number of open source projects to work properly:
+### Tech of App
+This App uses a number of open source projects to work properly:
 
 * [React-Native](https://facebook.github.io/react-native) - Build mobile apps with React
 * [React-Navigation](https://github.com/react-community/react-navigation) - React Navigation is born from the React Native community's need for an extensible yet easy-to-use navigation solution. It replaces and improves upon several navigation libraries in the ecosystem, including Ex-Navigation, React Native's Navigator and NavigationExperimental components. React Navigation can also be used across React and React Native projects allowing for a higher degree of shared code.
@@ -64,6 +64,22 @@ This app uses a number of open source projects to work properly:
 * [Express](https://github.com/expressjs/express) - fast node.js network app framework [@tjholowaychuk]
 * [MongoDB](https://www.mongodb.com/) - noSQL DataBase
 * [Firebase](https://firebase.google.com/) - analyze and send cloud messages to your user
+
+***
+### Tech of Server
+This Server uses a number of open source projects to work properly:
+
+* [Opencc](https://www.npmjs.com/package/opencc) - Open CHinese converter for cn robot api
+* [JWT](https://jwt.io/) - JSON WEB TOKEN for securing requests
+* [express-jwt](https://github.com/auth0/express-jwt) - A middleware for express for jwt
+* [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) - A module for sign and verify jwt 
+* [moment](https://momentjs.com/) - A standard time module for time stamp for checking the time of keeper giving score.
+* [moment-timezone](https://momentjs.com/timezone/) - A standard time module for timezone
+* [mongoose](http://mongoosejs.com/) - A module for MongoDB
+* [MongoDB](https://www.mongodb.com/) - This project's DB
+* [Express](http://expressjs.com/zh-tw/) - Node.js web framework
+* [Ansible](https://www.ansible.com/) - Automatic deploy env to AWS EC2
+* [AWS EC2](https://aws.amazon.com/tw/) - Deploy our project on it
 
 ***
 
