@@ -10,8 +10,7 @@
 
 [EC2]
 #54.238.186.208 ansible_user=ubuntu ansible_ssh_private_key_file=youngditakeitover.pem
-#54.249.2.127 ansible_user=ubuntu ansible_ssh_private_key_file=youngditakeitover.pem
-54.238.136.191 ansible_user=ubuntu ansible_ssh_private_key_file=youngditakeitover.pem
+54.249.111.51 ansible_user=ubuntu ansible_ssh_private_key_file=youngditakeitover.pem
 #[Platform9test04]
 #172.17.41.45 ansible_user=ubuntu ansible_ssh_pass=password
 #172.17.41.47 ansible_user=ubuntu ansible_ssh_pass=password

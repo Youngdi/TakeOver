@@ -8,10 +8,9 @@
     "dev:pm2": "pm2 start build/dev-server.js --watch",
     "dev:pm2:stop": "pm2 stop build/dev-server.js",
     "dev": "node build/dev-server.js",
-    "start": "node build/dev-server.js",
+    "start": "PORT=8083 node prod.server.js",
     "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src",
-    "start": "PORT=8083 node prod.server.js"
+    "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
     "cors": "^2.8.3",

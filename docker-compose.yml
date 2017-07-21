@@ -29,21 +29,21 @@ services:
       VIRTUAL_PORT: 8083
       LETSENCRYPT_HOST: 'team4taiwan.com'
       LETSENCRYPT_EMAIL: 'u9951062@gmail.com'
-  web2:
-    image: youngdi/takeover:latest
-    restart: always
-    ports:
-      - "8084:8083"
-    links:
-      - db
-    environment:
-      PORT: 8083 # this is optional, allows express to use process.env.PORT instead of a raw 3000
-      mongoConfig: mongodb://db:27017/takeitover
-      VIRTUAL_HOST: 'team4taiwan.com'
-      VIRTUAL_NETWORK: 'nginx-proxy'
-      VIRTUAL_PORT: 8083
-      LETSENCRYPT_HOST: 'team4taiwan.com'
-      LETSENCRYPT_EMAIL: 'u9951062@gmail.com'
+  # web2:
+  #   image: youngdi/takeover:latest
+  #   restart: always
+  #   ports:
+  #     - "8084:8083"
+  #   links:
+  #     - db
+  #   environment:
+  #     PORT: 8083 # this is optional, allows express to use process.env.PORT instead of a raw 3000
+  #     mongoConfig: mongodb://db:27017/takeitover
+  #     VIRTUAL_HOST: 'team4taiwan.com'
+  #     VIRTUAL_NETWORK: 'nginx-proxy'
+  #     VIRTUAL_PORT: 8083
+  #     LETSENCRYPT_HOST: 'team4taiwan.com'
+  #     LETSENCRYPT_EMAIL: 'u9951062@gmail.com'
   nginx:
     restart: always
     image: nginx

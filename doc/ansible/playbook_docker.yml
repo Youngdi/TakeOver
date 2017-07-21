@@ -9,6 +9,9 @@
         src: ../../doc/csv
         dest: ~/doc/
     - copy: 
+        src: ../../doc/mongoImport.sh
+        dest: ~/doc/
+    - copy: 
         src: ../../../docker-compose.yml
         dest: ~/
     - copy: 
