@@ -1,3 +1,2 @@
-var BASECONNECTION = 'https://team4taiwan.com';
-//var BASECONNECTION = 'https://bytday.com' || process.env.dns;
+var BASECONNECTION = window.location.origin;
 var PORT = '443';

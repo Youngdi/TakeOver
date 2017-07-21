@@ -1,2 +1,2 @@
-export const SERVER_IP = 'bytday.com'; //54.199.248.41
+export const SERVER_IP = 'team4taiwan.com'; //54.238.186.208 bytday.com
 export const PORT = '443';
