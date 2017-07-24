@@ -29,7 +29,6 @@ export default class SplashScreen extends React.Component {
       type: 'WanderingCubes',
     };
   }
-
   componentDidMount() {
     check_login.bind(this)();
     setTimeout(()=>{

@@ -52,52 +52,56 @@ export default class TabOneScreenOne extends React.Component {
     };
   }
   async init() {
-    const table_flag = await getFlagFromSetting();
-    if (table_flag.changeToDay3 == 'T') {
-      const country = await getMyCountry();
-      if (country) {
-        this.setState({
-          username: country.username,
-          country: country.country,
-          K: country.K,
-          water: country.water,
-          fire: country.fire,
-          wood: country.wood,
-          stone: country.stone,
-          seed: country.seed,
-          isRefreshing: false,
-          visible: false,
-          isOpen: false,
-        });
-      } else {
-        this.setState({
-          visible: false,
-        });
-        this.props.navigation.navigate('Login');
-      }
+    try {
+      const table_flag = await getFlagFromSetting();
+      if (table_flag.changeToDay3 == 'T') {
+        const country = await getMyCountry();
+        if (country) {
+          this.setState({
+            username: country.username,
+            country: country.country,
+            K: country.K,
+            water: country.water,
+            fire: country.fire,
+            wood: country.wood,
+            stone: country.stone,
+            seed: country.seed,
+            isRefreshing: false,
+            visible: false,
+            isOpen: false,
+          });
+        } else {
+          this.setState({
+            visible: false,
+          });
+          this.props.navigation.navigate('Login');
+        }
 
-    } else {
-      const user = await getMyUser();
-      if (user) { 
-        this.setState({
-          username: user.username,
-          country: user.country,
-          K: user.K,
-          water: user.water,
-          fire: user.fire,
-          wood: user.wood,
-          stone: user.stone,
-          seed: user.seed,
-          isRefreshing: false,
-          visible: false,
-          isOpen: false,
-        });
       } else {
-        this.setState({
-          visible: false,
-        });
-        this.props.navigation.navigate('Login');
+        const user = await getMyUser();
+        if (user) { 
+          this.setState({
+            username: user.username,
+            country: user.country,
+            K: user.K,
+            water: user.water,
+            fire: user.fire,
+            wood: user.wood,
+            stone: user.stone,
+            seed: user.seed,
+            isRefreshing: false,
+            visible: false,
+            isOpen: false,
+          });
+        } else {
+          this.setState({
+            visible: false,
+          });
+          this.props.navigation.navigate('Login');
+        }
       }
+    } catch (error) {
+      alert('不好意思，伺服器已關閉，明年請儘早報名變強好不好夏令營');
     }
   }
   _onRefresh() {

@@ -17,6 +17,7 @@ export async function api_login(value) {
   )
   .then((response) => response.json())
   .catch((error) => {
+    alert('不好意思，伺服器已關閉，明年請儘早報名變強好不好夏令營');
     console.error(error);
     return error;
   });

@@ -42,10 +42,10 @@ async function login(value) {
       });
     }
   } catch(error) {
-    this.setState({
-      visible: !this.state.visible
-    });
-    console.log(error);
+    alert('不好意思，伺服器已關閉，明年請儘早報名變強好不好夏令營');
+    // this.setState({
+    //   visible: !this.state.visible
+    // });
   }
 }
 async function loginForFun() {
@@ -76,7 +76,7 @@ async function loginForFun() {
     this.setState({
       visible: !this.state.visible
     });
-    console.log(error);
+    alert('不好意思，伺服器已關閉，明年請儘早報名變強好不好夏令營');
   }
 }
 
