@@ -12,10 +12,10 @@
         src: ../../doc/mongoImport.sh
         dest: ~/doc/
     - copy: 
-        src: ../../../docker-compose.yml
+        src: ../../docker-compose.yml
         dest: ~/
     - copy: 
-        src: /Users/yang/Documents/TakeOver/volumes
+        src: ../../volumes
         dest: ~/
         owner: ubuntu
         group: ubuntu
