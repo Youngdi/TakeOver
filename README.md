@@ -1,6 +1,6 @@
 # 2017 TakeOver夏令營App
 
-[![N|Solid](http://www.bannerch.org/images/logo.svg)](http://www.bannerch.org/)
+[![N|Solid](http://www.bannerch.org/images/main%20optic/logo.svg)](http://www.bannerch.org/)
 
 Banner Church Summer Camp 2017旌旗傾城而出夏令營配合大地遊戲使用的App
 - [Apple Store下載體驗](https://itunes.apple.com/tw/app/takeover/id1252631432?mt=8)
