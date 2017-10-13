@@ -17,8 +17,8 @@
     - copy: 
         src: ../../volumes
         dest: ~/
-        owner: ubuntu
-        group: ubuntu
+        owner: yang
+        group: yang
         mode: 0755
     - name: install Docker from official shell script
       raw: curl -sSL https://get.docker.com/ | sh
